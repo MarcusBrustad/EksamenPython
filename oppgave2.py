@@ -85,6 +85,8 @@ def task_2b() -> tuple[list, list]:
     """
 
     name_age_list = ["Cecilie", 28, "Bjørn", 30, "Tor", 24, "Anna", 25]
+    print(f'The list {name_age_list} will be split into two'
+          f' separate lists [names] and [ages]')
 
     names_list: list[str] = [name for name in name_age_list
                              if isinstance(name, str)]

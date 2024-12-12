@@ -24,6 +24,7 @@ sorterer dem i undermapper basert på filtype:
     basert på deres filtype.
 """
 
+
 # --------------------------------------------------------------------------- #
 # Utility for this task and sub-tasks
 
@@ -111,7 +112,7 @@ def tasks_4a():
                 i+=1
         except FileExistsError:
             continue
-    print(f'Made [{i}] random files and placed them in [{foldername}]')
+    print(f'{i} random files created and placed in folder: [{foldername}]')
 
 
 # --------------------------------------------------------------------------- #
@@ -151,16 +152,18 @@ def tasks_4b():
 
     # Log of what files has been moved and to what folder
     for ext, amount in files_moved.items():
-        print(f'Moved [{amount}] files of type [{ext}] to:'
-              f' [{sorted_folder}/{ext}-files]')
+        print(f'{amount} {ext}-files moved to corresponding folder')
 
-    for ext, amount in files_existed.items():
-        print(f'[{amount}] of filetype [{ext}] already existed in directory:'
-              f' [{sorted_folder}/{ext}-files]')
+    # Log of what files already existed
+    if files_existed:
+        print("Summary of files not moved:")
+        for ext, count in files_existed.items():
+            print(f"{count} {ext}-files already existed in their target folders.")
 
-
+    # Checks if the original folder is empty then removes it
     if not os.listdir(original_foldername):
         os.rmdir(original_foldername)
+        print()
         print(f'Directory: {original_foldername} is now empty. Deleting!')
 
 

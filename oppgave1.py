@@ -203,6 +203,7 @@ def tasks_1d():
             return
         fruits[nr1], fruits[nr2] = fruits[nr2], fruits[nr1]
         print(f'The updated list after swapping: {fruits}')
+
     except IndexError:
         print('One or more indexes are invalid.')
     except ValueError:
